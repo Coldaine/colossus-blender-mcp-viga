@@ -52,8 +52,6 @@ screenshots/
 temp/
 _ul/
 nul/
-ENDPOINT_DIAGNOSIS.md
-VERIFIED_WORKING.md
 test_connection.py
 test_glm_working.py
 test_vision_model.py

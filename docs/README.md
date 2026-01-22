@@ -1,40 +1,38 @@
-# Colossus Blender MCP Documentation
+# Documentation Index
 
-Welcome to the official documentation for the **Colossus Blender MCP** integration. This project implements a high-fidelity 3D scene creation pipeline using the **VIGA** (Vision-as-Inverse-Graphics Analysis-by-Synthesis) framework.
+This folder is the canonical documentation hub.
 
-## Core Framework: VIGA
+## Start here
 
-VIGA is a closed-loop multi-agent system that treats 3D modeling as an iterative search problem. By combining high-level planning with active visual verification, it achieves human-level precision in complex Blender environments.
+- Architecture (high level): [architecture.md](architecture.md)
+- Pipeline overview (operational): [pipeline_overview.md](pipeline_overview.md)
+- Pipeline deep dive (definitive): [pipeline.md](pipeline.md)
 
-### Key Components
-- **Generator**: Synthesizes Python scripts for Blender based on task intent and historical feedback.
-- **Verifier**: Uses active viewport exploration and computer vision to analyze renders and provide corrective feedback.
-- **Blender MCP Interface**: A robust bridge allowing LLMs to execute code directly within Blender 4.4+.
+## Requirements + tracking
 
----
+- Documentation schema: [requirements.md](requirements.md)
+- Changelog: [CHANGELOG.md](CHANGELOG.md)
+- TODO: [todo.md](todo.md)
 
-## Documentation Index
+## Subdomains
 
-### 🚀 Getting Started
-- [**Setup Guide**](SETUP_GUIDE.md): Installation, environment configuration, and model deployment (Qwen3-VL).
-- [**Development Guide**](DEVELOPMENT_GUIDE.md): Standards for contributing to the Colossus codebase.
+- Setup: [setup/setup.md](setup/setup.md)
+- Models: [models/models.md](models/models.md)
+- Prompts: [prompts/prompts.md](prompts/prompts.md)
+- MCP bridge: [mcp/mcp.md](mcp/mcp.md)
+- VIGA internals: [viga/viga.md](viga/viga.md)
+- Skills: [skills/skills.md](skills/skills.md)
+- Status: [status/status.md](status/status.md)
+- Plans (stacked PR strategy): [plans/plans.md](plans/plans.md)
+- Dev: [dev/dev.md](dev/dev.md)
 
-### 🧠 Architecture & Design
-- [**Agent Design**](AGENT_DESIGN.md): Detailed breakdown of the **Generator** and **Verifier** roles.
-- [**VIGA Algorithm**](VIGA_ALGORITHM.md): Mathematics and logic behind the Analysis-by-Synthesis loop.
-- [**Model Support**](MODEL_SUPPORT.md): Information on Qwen3-VL (8B/30B) and Gemini 3 Pro integration.
+## Legacy deep dives (kept for reference)
 
-### 📊 Status & References
-- [**Project Summary**](PROJECT_SUMMARY.md): Current implementation state and milestone tracking.
-- [**Verified Working**](VERIFIED_WORKING.md): List of tested hardware configurations and Blender versions.
-
----
-
-## Performance Targets (Jan 2026)
-- **Primary Model**: Qwen3-VL-30B (Local GGUF via llama.cpp).
-- **Secondary Model**: Qwen3-VL-8B (Optimized for 8GB-12GB VRAM).
-- **Blender Version**: 4.4.x (Active Development).
-- **GPU Optimization**: Native profiles for NVIDIA RTX 3090/4090/5090.
-
----
-*Version: 0.4.0 | Last Updated: January 2026*
+- Agent design: [viga/agent_design.md](viga/agent_design.md)
+- VIGA algorithm: [viga/viga_algorithm.md](viga/viga_algorithm.md)
+- Development guide: [dev/development.md](dev/development.md)
+- Model support notes: [models/model_support.md](models/model_support.md)
+- Staging notes: [plans/pr_staging.md](plans/pr_staging.md)
+- Remote infra notes: [plans/remote_infrastructure.md](plans/remote_infrastructure.md)
+- Project summary: [status/project_summary.md](status/project_summary.md)
+- Verified working environments: [status/verified_working.md](status/verified_working.md)

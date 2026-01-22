@@ -1,0 +1,61 @@
+# Environment variables (contains API keys)
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Blender temp files
+*.blend1
+*.blend2
+
+# Models
+models/
+*.gguf
+*.bin
+*.pt
+
+# Test outputs
+test_output/
+screenshots/
+temp/
+_ul/
+nul/
+ENDPOINT_DIAGNOSIS.md
+VERIFIED_WORKING.md
+test_connection.py
+test_glm_working.py
+test_vision_model.py
+test_glm_vision.sh
+test_glm_vision.ps1

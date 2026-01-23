@@ -5,14 +5,15 @@ This project uses a documentation layout designed for separation of concerns and
 ## 1) Root `docs/` contents
 
 The root docs folder should contain:
-- **architecture.md**: high-level components and how they connect.
-- **pipeline_overview.md**: operational overview of what happens.
-- **pipeline.md**: deep dive, definitive runtime description.
+- **MASTER_REQUIREMENTS.md**: source of truth for architecture and requirements.
 - **requirements.md**: *this file* (documentation schema + rules).
 - **CHANGELOG.md**: human-readable change history.
-- **todo.md**: tracked work items for docs/system improvements.
 
-The root docs folder may also contain **README.md** as the documentation index.
+The root docs folder may also contain:
+- **README.md**: documentation index.
+- **copilot-instructions.md**: assistant workflow rules.
+
+The root docs folder may also contain **archive/** to preserve legacy docs without polluting active guidance.
 
 ## 2) Subdomain folders
 
@@ -22,8 +23,11 @@ Rule: each subdomain folder MUST contain a “master doc” named exactly like t
 
 Examples:
 - `docs/models/models.md`
-- `docs/viga/viga.md`
 - `docs/mcp/mcp.md`
+- `docs/prompts/prompts.md`
+- `docs/setup/setup.md`
+- `docs/plans/plans.md`
+- `docs/status/verified_working.md`
 
 Additional supporting docs may live alongside the master doc as needed.
 
@@ -55,9 +59,10 @@ Each master doc should cover:
 
 Contributor-facing instructions live in:
 - `copilot-instructions.md`
-- `claude.md`
 
 Those files MUST:
 - point to the docs index
-- instruct contributors to read `docs/architecture.md` before starting work
-- instruct contributors to read the subdomain docs relevant to their task
+- instruct contributors/assistants to read `docs/MASTER_REQUIREMENTS.md` before starting work
+- instruct contributors/assistants to read the subdomain docs relevant to their task
+
+If additional assistant-specific instruction files exist, prefer keeping them in `docs/archive/` unless they are actively used.

@@ -5,6 +5,17 @@ All notable changes to documentation and the VIGA pipeline should be recorded he
 ## Unreleased
 
 ### Added
+- `docs/archive/`, `src/archive/`, `tests/archive/` to preserve legacy work without polluting the active rebuild.
+- Archive READMEs and updated docs navigation to reflect the rebuild.
+
+### Changed
+- Repository repositioned as a personal tooling + exploration repo undergoing a clean rebuild.
+- Documentation workflow updated to use `MASTER_REQUIREMENTS.md` + `docs/plans/*` as the source of truth.
+
+### Fixed
+- Removed stale references in docs index and assistant instructions after archiving legacy pipeline/VIGA documentation.
+
+### Added
 - Documentation schema and subdomain layout.
 - **Attempt Coordinator plan** with 8 detailed design documents:
   - `attempt_coordinator.md`: Two-level controller (outer attempt loop).

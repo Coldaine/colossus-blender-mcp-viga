@@ -1,70 +1,65 @@
 # Colossus Blender MCP - Setup Guide (Jan 2026)
 
-This guide provides instructions for setting up the VIGA framework with Qwen3-VL (8B/30B) for vision-guided Blender automation.
+This is a personal tooling repo for experimenting with agentic Blender workflows. The repository is currently in a rebuild phase: legacy code and outdated docs have been moved into `docs/archive/` and `src/archive/`.
 
 ## Prerequisites
 
 - **Blender 4.4+**: Installed at standard location (e.g., `C:\Program Files\Blender Foundation\Blender 4.4`).
 - **NVIDIA GPU**: RTX 3090, 4090, or 5090 (24GB+ VRAM recommended for 30B model).
-- **Python 3.10+**: With `pip` or `uv` package manager.
+- **Python**: Prefer **Python 3.12** for broad package compatibility. Python 3.13 can work, but some native wheels (notably OpenCV) may lag.
+- **Environment manager**: `uv` (recommended) or standard `venv`.
 
 ## 1. Environment Setup
 
-### Install Dependencies
-```bash
-pip install -r requirements.txt
+### Recommended: uv + venv
+
+Create and use a local virtual environment:
+
+```powershell
+uv venv --python 3.12
+uv pip install -r requirements.txt
 ```
 
-### Install Blender MCP Addon
-1. Locate `config/addon.py` in this repository.
-2. Open Blender 4.4.
-3. Go to **Edit > Preferences > Add-ons > Install**.
-4. Select `config/addon.py`.
-5. Enable **Interface: Blender MCP**.
-6. Check the system console to verify: `MCP Server Started on port 9876`.
+If you prefer standard tooling:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+### Blender bridge
+
+The Blender-side bridge is being rebuilt. If you need the legacy addon for reference, it is archived under `src/archive/config/`.
 
 ## 2. Model Configuration (Qwen3-VL)
 
-The VIGA framework uses **Qwen3-VL** for both code generation (Generator) and visual verification (Verifier).
+Models can be local (e.g. GGUF served by `llama.cpp`) or cloud. For this personal repo, API keys are expected to come from your **user-level environment variables** (Windows Environment Variables, PowerShell profile, etc.).
 
-### Local GGUF Deployment (Recommended)
-We use `llama.cpp` to serve Qwen3-VL GGUF files.
+### Local GGUF deployment
 
-1. **Download Model**:
-   ```powershell
-   pwsh -File scripts/download_qwen3_vl_gguf.ps1 -Size 30B
-   ```
-2. **Launch Server**:
-   ```powershell
-   pwsh -File scripts/launch_llamacpp_server.ps1 -ModelPath "models/Qwen3-VL-30B-A3B-Instruct-GGUF/Qwen3-VL-30B-A3B-Instruct-Q4_K_M.gguf" -Port 8000
-   ```
+Model binaries live under `models/`. Server launch scripts may be reintroduced later; legacy scripts are currently archived under `src/archive/scripts/`.
 
-### Configuration (.env)
-Create or update your `.env` file in the project root:
-```env
-QWEN3_VL_ENDPOINT=http://localhost:8000/v1
-QWEN3_VL_SIZE=30B
-BLENDER_HOST=localhost
-BLENDER_PORT=9876
-```
+### Environment variables (preferred)
+
+Recommended: set these in your OS user environment (not committed):
+
+- `ANTHROPIC_API_KEY` (optional)
+- `GOOGLE_AI_API_KEY` (optional)
+- `ZAI_API_KEY` (optional)
+- `QWEN3_VL_ENDPOINT` (optional, if running a local server)
+
+Optional: you may use a local `.env` file for convenience. Never commit it. See `.env.example` for the variable names.
 
 ## 3. Verifying the Setup
 
-Run the following scripts to ensure all components are communicating correctly:
-
-```bash
-# Test Blender MCP connection
-python -m pytest tests/test_vision_utils.py
-
-# Run a basic VIGA loop test
-python -m pytest tests/test_viga_agent.py
-```
+The automated test suite is being rebuilt (legacy tests are archived under `tests/archive/`). Verification steps will be added as Phase I implementation lands.
 
 ## 4. Troubleshooting
 
 - **Blender Connection Refused**: Ensure the MCP addon is enabled and Blender is not frozen.
 - **CUDA Out of Memory**: If using 30B model on a 24GB card, ensure no other heavy processes are running, or switch to the 8B model.
-- **Vision Retries**: If the text output contains "multimodal schema rejected", ensure your `llama.cpp` version supports Qwen3-VL vision tokens.
+- **Python 3.13 install issues**: If dependency installs fail, switch to Python 3.12 for now.
 
 ---
 *Version: 0.4.0 | Date: January 2026*

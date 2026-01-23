@@ -5,7 +5,11 @@ This subdomain documents the prompts used by the system.
 ## Where prompts live
 
 - The repository prompt templates currently live under `prompts/`.
-- The VIGA agents also embed some prompts inline (planning, camera translation).
+- Legacy code embedded additional prompts inline; those implementations are now archived under `src/archive/`.
+
+## TODO (keep updated)
+
+- Treat `prompts/` as an evolving library: periodically prune, rewrite, and re-align prompts with the current Phase I/II architecture.
 
 ## Prompt categories
 
@@ -32,5 +36,5 @@ This subdomain documents the prompts used by the system.
 
 ## Related docs
 
-- Code extraction behavior: `src/colossus_blender/vision_utils.py`
+- Code extraction behavior: (rebuild in progress; legacy utilities are archived under `src/archive/`)
 - Model adapters: docs/models/models.md

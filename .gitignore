@@ -7,6 +7,11 @@ __pycache__/
 *$py.class
 *.so
 .Python
+/.pytest_cache/
+/.ruff_cache/
+/.mypy_cache/
+/.coverage
+/.hypothesis/
 build/
 develop-eggs/
 dist/
@@ -24,6 +29,7 @@ wheels/
 *.egg
 venv/
 ENV/
+/.venv/
 
 # IDE
 .vscode/
@@ -45,6 +51,13 @@ models/
 *.gguf
 *.bin
 *.pt
+
+# Local run artifacts (personal experimentation)
+/runs/
+/artifacts/
+/screenshots/
+/temp/
+/test_output/
 
 # Test outputs
 test_output/
